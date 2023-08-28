@@ -1,7 +1,7 @@
 <template>
     <div class="user">
         <div class="user__img-wrapper">
-
+            <img src="@/assets/img_plug.svg" alt="Фото профиля"/>
         </div>
         <div class="user__data">
             <p><strong>{{ user.name }}</strong></p>
@@ -10,11 +10,18 @@
     </div>
 </template>
 
-<script>
+<script lang="ts">
+import { type PropType } from 'vue'
+
+export interface User {
+    name: string
+    email: string
+    id: number
+}
 export default {
     props: {
         user: {
-            type: Object,
+            type: Object as PropType<User>,
             required: true
         }
     }
@@ -22,12 +29,41 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .user {
-    padding: 15px;
-    border: 2px solid lightgray;
-    margin-top: 15px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    margin-top: 15px;
+    border-radius: $sz-border-radius;
+    min-width: $sz-item-width;
+    max-width: $sz-item-width;
+    max-height: $sz-item-height;
+    box-shadow: 0 0 $sz-shadow-blur-radius 0 $color-shadow;
+    transition: background-color $trans-default;
 }
+
+.user:hover {
+    background-color: $color-hover-bg;
+    cursor: pointer;
+}
+
+.user__img-wrapper {
+    max-width: $sz-item-height;
+    border-right: 1px solid $color-border;
+}
+
+.user__img-wrapper img {
+    min-height: $sz-item-height;
+    border-top-left-radius: $sz-border-radius;
+    border-bottom-left-radius: $sz-border-radius;
+}
+
+.user__data {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    max-width: 170px;
+    overflow: clip;
+}
+
 </style>
