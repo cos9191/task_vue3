@@ -1,21 +1,22 @@
-// @ts-nocheck
 import axios from 'axios'
+import { Commit } from 'vuex'
+import { State } from '@/models/user.interface'
 
 export const userModule = {
-    state: () => ({
+    state: (): State => ({
         users: [],
         searchedUsers: [],
         isUsersLoading: false,
         searchQuery: []
     }),
     getters: {
-        searchedUsers (state) {
+        searchedUsers (state: State) {
             const searchQueries = state.searchQuery
                 .filter(query => query.trim() !== '')
                 .map(query => query.toLowerCase())
             return state.users.filter(user =>
                 searchQueries.some(query => {
-                    if (!isNaN(query)) {
+                    if (!isNaN(Number(query))) {
                         return user.id === Number(query)
                     }
                     return user.name.toLowerCase().includes(query)
@@ -24,18 +25,18 @@ export const userModule = {
         }
     },
     mutations: {
-        setUsers (state, users) {
+        setUsers (state: State, users: []) {
             state.users = users
         },
-        setLoading (state, bool) {
+        setLoading (state: State, bool: boolean) {
             state.isUsersLoading = bool
         },
-        setSearchQuery (state, searchQuery) {
+        setSearchQuery (state: State, searchQuery: string[]) {
             state.searchQuery = searchQuery
         }
     },
     actions: {
-        async fetchUsers ({ commit }) {
+        async fetchUsers ({ commit }: { commit: Commit }) {
             try {
                 commit('setLoading', true)
                 const response = await axios.get(

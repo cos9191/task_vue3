@@ -21,10 +21,11 @@
     </div>
 </template>
 
-<script>
-import { computed } from 'vue'
+<script lang="ts">
+import { computed, ComputedRef } from 'vue'
 import { useStore } from 'vuex'
 import useUserId from '@/hooks/useUserId'
+import { User } from '@/models/user.interface'
 import AppTitle from '@/components/UI/AppTitle.vue'
 
 export default {
@@ -35,10 +36,10 @@ export default {
     setup () {
         const store = useStore()
         const { selectedUserId } = useUserId()
-        const selectedUser = computed(() => {
+        const selectedUser: ComputedRef<User> = computed(() => {
             const searchedUsers = store.state.user.users
             if (searchedUsers) {
-                return searchedUsers.find(user => user.id === selectedUserId.value)
+                return searchedUsers.find((user: User) => user.id === selectedUserId.value)
             }
             return null
         })

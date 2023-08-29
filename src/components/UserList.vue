@@ -23,9 +23,9 @@
     </div>
 </template>
 
-<script>
-import UserItem from '@/components/UserItem'
-import AppTitle from '@/components/UI/AppTitle'
+<script lang="ts">
+import UserItem from '@/components/UserItem.vue'
+import AppTitle from '@/components/UI/AppTitle.vue'
 import useUserId from '@/hooks/useUserId'
 
 export default {
@@ -56,7 +56,7 @@ export default {
     setup () {
         const { changeUserId } = useUserId()
 
-        const handleClick = (userId) => changeUserId(userId)
+        const handleClick = (userId: number) => changeUserId(userId)
 
         return {
             changeUserId,

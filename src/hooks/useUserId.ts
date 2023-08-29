@@ -1,19 +1,19 @@
 import { ref } from 'vue'
 
-const userIdCache = {}
+const userIdCache = new Map()
 
 export default function useUserId () {
-    if (!userIdCache.instance) {
-        userIdCache.instance = createUserIdInstance()
+    if (!userIdCache.has('instance')) {
+        userIdCache.set('instance', createUserIdInstance())
     }
 
-    return userIdCache.instance
+    return userIdCache.get('instance')
 }
 
 function createUserIdInstance () {
     const selectedUserId = ref(0)
 
-    const changeUserId = (userId) => {
+    const changeUserId = (userId: number) => {
         selectedUserId.value = userId
     }
 

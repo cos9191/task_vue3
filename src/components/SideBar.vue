@@ -16,10 +16,10 @@
     </div>
 </template>
 
-<script>
-import UserList from '@/components/UserList'
-import AppInput from '@/components/UI/AppInput'
-import AppTitle from '@/components/UI/AppTitle'
+<script lang="ts">
+import UserList from '@/components/UserList.vue'
+import AppInput from '@/components/UI/AppInput.vue'
+import AppTitle from '@/components/UI/AppTitle.vue'
 import { mapState, mapGetters, mapActions, mapMutations } from 'vuex'
 
 export default {
@@ -37,14 +37,10 @@ export default {
         })
     },
     mounted () {
-        this.fetchUsers()
+        (this as any).fetchUsers()
     },
     computed: {
-        ...mapState({
-            users: state => state.user.users,
-            isUsersLoading: state => state.user.isUsersLoading,
-            searchQuery: state => state.user.searchQuery
-        }),
+        ...mapState('user', ['users', 'isUsersLoading', 'searchQuery']),
         ...mapGetters({
             searchedUsers: 'user/searchedUsers'
         })

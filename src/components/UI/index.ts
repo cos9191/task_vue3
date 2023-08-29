@@ -1,6 +1,7 @@
-// @ts-ignore
-import AppInput from '@/components/UI/AppInput'
+import AppInput from '@/components/UI/AppInput.vue'
+import AppTitle from '@/components/UI/AppTitle.vue'
 
 export default [
-    AppInput
+    AppInput,
+    AppTitle
 ]

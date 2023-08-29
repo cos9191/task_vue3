@@ -12,12 +12,8 @@
 
 <script lang="ts">
 import { type PropType } from 'vue'
+import { User } from '@/models/user.interface'
 
-export interface User {
-    name: string
-    email: string
-    id: number
-}
 export default {
     props: {
         user: {
@@ -39,6 +35,7 @@ export default {
     max-height: $sz-item-height;
     box-shadow: 0 0 $sz-shadow-blur-radius 0 $color-shadow;
     transition: background-color $trans-default;
+    user-select: none;
 }
 
 .user:hover {
