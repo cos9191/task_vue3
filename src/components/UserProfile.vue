@@ -36,7 +36,7 @@ export default {
         const store = useStore()
         const { selectedUserId } = useUserId()
         const selectedUser = computed(() => {
-            const searchedUsers = store.getters['user/searchedUsers']
+            const searchedUsers = store.state.user.users
             if (searchedUsers) {
                 return searchedUsers.find(user => user.id === selectedUserId.value)
             }

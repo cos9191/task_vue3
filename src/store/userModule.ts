@@ -32,9 +32,6 @@ export const userModule = {
         },
         setSearchQuery (state, searchQuery) {
             state.searchQuery = searchQuery
-        },
-        setSearchedUsers (state, searchedUsers) {
-            state.searchedUsers = searchedUsers
         }
     },
     actions: {
@@ -47,7 +44,7 @@ export const userModule = {
                 )
                 commit('setUsers', response.data)
             } catch (err) {
-                alert(`Обновите страницу или попробуйте позже \nОшибка\n${err}`)
+                alert(`Обновите страницу или попробуйте позже\nОшибка\n${err}`)
             } finally {
                 commit('setLoading', false)
             }

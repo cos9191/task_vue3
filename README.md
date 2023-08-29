@@ -1,5 +1,7 @@
 # task_vue3
 
+[Макет + ТЗ](https://clck.ru/35VWkV)
+
 ## Project setup
 ```
 npm install

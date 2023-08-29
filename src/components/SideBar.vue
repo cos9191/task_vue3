@@ -30,8 +30,7 @@ export default {
     },
     methods: {
         ...mapMutations({
-            setSearchQuery: 'user/setSearchQuery',
-            setSearchedUsers: 'user/setSearchedUsers'
+            setSearchQuery: 'user/setSearchQuery'
         }),
         ...mapActions({
             fetchUsers: 'user/fetchUsers'
@@ -44,8 +43,7 @@ export default {
         ...mapState({
             users: state => state.user.users,
             isUsersLoading: state => state.user.isUsersLoading,
-            searchQuery: state => state.user.searchQuery,
-            searchedUsers: state => state.user.searchedUsers
+            searchQuery: state => state.user.searchQuery
         }),
         ...mapGetters({
             searchedUsers: 'user/searchedUsers'
