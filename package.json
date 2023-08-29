@@ -2,10 +2,13 @@
     "name": "task_vue3",
     "version": "0.1.0",
     "private": true,
+    "homepage": "https://cos9191.github.io/task_vue3",
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
-        "lint": "vue-cli-service lint"
+        "lint": "vue-cli-service lint",
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build"
     },
     "dependencies": {
         "core-js": "^3.8.3",
@@ -30,6 +33,7 @@
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-promise": "^6.0.0",
         "eslint-plugin-vue": "^8.0.1",
+        "gh-pages": "^6.0.0",
         "sass": "^1.32.7",
         "sass-loader": "^12.0.0",
         "typescript": "~4.5.5"
