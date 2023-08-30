@@ -49,6 +49,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .sidebar-wrapper {
     display: flex;
     flex-direction: column;
@@ -57,7 +58,9 @@ export default {
     padding: 20px 20px 4px 20px;
     border-right: 1px solid $color-border;
 }
+
 .sidebar__list {
     margin-top: 20px;
 }
+
 </style>

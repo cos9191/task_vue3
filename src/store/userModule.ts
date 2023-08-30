@@ -19,7 +19,7 @@ export const userModule = {
                     if (!isNaN(Number(query))) {
                         return user.id === Number(query)
                     }
-                    return user.name.toLowerCase().includes(query)
+                    return user.username.toLowerCase().includes(query)
                 })
             )
         }

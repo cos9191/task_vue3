@@ -4,7 +4,7 @@
             <img src="@/assets/img_plug.svg" alt="Фото профиля"/>
         </div>
         <div class="user__data">
-            <p><strong>{{ user.name }}</strong></p>
+            <p><strong>{{ user.username }}</strong></p>
             <p>{{ user.email }}</p>
         </div>
     </div>

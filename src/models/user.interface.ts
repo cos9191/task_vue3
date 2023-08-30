@@ -3,6 +3,7 @@ export interface User {
     name: string;
     email: string;
     phone: string;
+    username: string;
 }
 
 export interface State {
