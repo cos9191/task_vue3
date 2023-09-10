@@ -37,7 +37,7 @@ export default {
         })
     },
     mounted () {
-        (this as any).fetchUsers()
+        this.fetchUsers()
     },
     computed: {
         ...mapState('user', ['users', 'isUsersLoading', 'searchQuery']),

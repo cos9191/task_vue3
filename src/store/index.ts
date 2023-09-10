@@ -7,6 +7,3 @@ export default createStore({
         user: userModule
     }
 })
-
-export class RootState {
-}
